@@ -1,43 +1,61 @@
 # Stance Classification Project
 
 
-[![UHH](https://www.kus.uni-hamburg.de/5572339/uhh-logo-2010-29667bd15f143feeb1ebd96b06334fddfe378e09.png)](https://www.uni-hamburg.de/) -  <a href="https://www.inf.uni-hamburg.de/en/inst/ab/sems/home.html"><img src="https://www.inf.uni-hamburg.de/5546980/lt-logo-640x361-9345df620ffab7a8ce97149b66c2dfc9d3ff429e.png" width="200" height="100" /></a>
+[![UHH](https://www.kus.uni-hamburg.de/5572339/uhh-logo-2010-29667bd15f143feeb1ebd96b06334fddfe378e09.png)](https://www.uni-hamburg.de/)<a href="https://www.inf.uni-hamburg.de/en/inst/ab/sems/home.html"><img src="https://www.inf.uni-hamburg.de/5546980/lt-logo-640x361-9345df620ffab7a8ce97149b66c2dfc9d3ff429e.png" width="200" height="100" /></a>
 
 
 ## Dataset
 
 The original dataset from [Panchenko et al., 2019](https://aclanthology.org/W19-4516/) is represented by two files: `comparg_train.tsv` and `comparg_test.tsv`. A split has been created using `data_preparation.py`.
 
-## Training
+## Setting up the environment
 
-Install all the needed libraries from `requirements.txt`:
+To set up the environment, you need to install poetry and run the following commands.
 
-```python
-pip install -r requirements.txt
+```bash
+pipx install poetry
+cd SC/train
+poetry install
 ```
 
-If you don't want to report to [WandB](https://wandb.ai/) please comment the respective lines in `train_main.py`.
+All the requirements are listed in `pyproject.toml`.
 
-The model can be trained by executing `train_main.py`:
+## Training
 
-```python
-python train_main.py
+The encoder-based model can be trained on GPU by executing `train_bert.py`.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python train_bert.py
+```
+
+If you don't want to report to [WandB](https://wandb.ai/), please comment the `report_to` argument in TrainingArguments in `train_bert.py`.
+
+## Hyperparameter Optimization
+
+To optimize the hyperparameters of a new encoder-based model from HuggingFace, run `optimize_bert.py`.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python optimize_bert.py
+```
+
+## Cross Validation
+
+To cross-validate a new encoder-based model from HuggingFace, run `cross_val_bert.py`.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python cross_val_bert.py
 ```
 
 ## Demo and API
 
-Once the model is created, you can run a demo operated by [Gradio](https://www.gradio.app/):
+Once the model is created, you can run a demo operated by [Gradio](https://www.gradio.app/).
 
-```python
+```bash
 python demo.py
 ```
 
 An API was created to access the model through a request. It is in the main file `main.py`.
 
-```python
+```bash
 python main.py
 ```
-
-## Hyperparameter Training
-
-If you want to optimize the hyperparameters of a new model from HuggingFace, please uncomment the respective lines in the `train_main.py` file and run the code.
