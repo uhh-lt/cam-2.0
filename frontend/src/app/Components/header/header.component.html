@@ -2,30 +2,30 @@
     <mat-toolbar color="primary">
         <mat-toolbar-row>
 
-            <span style="width: 50%">VersusQA</span>
+            <span style="width: 50%">CAM 2.0</span>
             <div style="width: 50%; display: flex; text-align: center; font-size: 14px" >
                     <button mat-menu-item routerLink='' [ngClass]="{'nav-selected': selectedTab == 'cqam'}"
                             (click)="setSelectedTab('cqam')">
-                        QA
+                       <span style="color: white">QA</span>
                     </button>
 
                     <button mat-menu-item routerLink='/about' [ngClass]="{'nav-selected': selectedTab == 'about'}"
                             (click)="setSelectedTab('about')">
-                        About
+                        <span style="color: white">About</span>
                     </button>
 
                     <button mat-menu-item (click)='goToGit()'>
-                        GitHub
+                        <span style="color: white">GitHub</span>
                     </button>
 
                     <button mat-menu-item routerLink='/api-info' [ngClass]="{'nav-selected': selectedTab == 'api-info'}"
                             (click)="setSelectedTab('api-info')">
-                        API
+                        <span style="color: white">API</span>
                     </button>
 
                     <button mat-menu-item routerLink='/contact' [ngClass]="{'nav-selected': selectedTab == 'contact'}"
                             (click)="setSelectedTab('contact')" style="text-align: center">
-                        Contact
+                        <span style="color: white">Contact</span>
                     </button>
             </div>
 
@@ -39,8 +39,7 @@
 
 
     <mat-menu x-position="before" #menu="matMenu">
-        <button mat-menu-item routerLink='' (click)="setSelectedTab('cam')"> CAM</button>
-        <button mat-menu-item routerLink='' (click)="setSelectedTab('search')"> Search</button>
+        <button mat-menu-item routerLink='' (click)="setSelectedTab('cqam')"> QA</button>
         <button mat-menu-item routerLink='/about' (click)="setSelectedTab('about')"> About</button>
         <button mat-menu-item (click)='goToGit()'> GitHub</button>
         <button mat-menu-item routerLink='/api-info' (click)="setSelectedTab('api-info')"> API</button>

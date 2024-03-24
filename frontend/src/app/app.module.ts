@@ -12,7 +12,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {ExtendedModule, FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
 import { HeaderComponent } from './Components/header/header.component';
@@ -65,7 +64,6 @@ const appRoute: Routes = [
         NoopAnimationsModule,
         RouterModule.forRoot(appRoute, {useHash: false}),
         MatToolbarModule,
-        FlexLayoutModule,
         MatMenuModule,
         MatIconModule,
         MatButtonModule,

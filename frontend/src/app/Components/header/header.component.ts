@@ -37,7 +37,7 @@ export class HeaderComponent {
   }
 
   goToGit() {
-    window.location.href = 'https://github.com/ahmadshallouf/VersusQA';
+    window.location.href = 'https://github.com/uhh-lt/cam-2.0';
   }
 
 
