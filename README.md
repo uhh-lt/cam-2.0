@@ -66,6 +66,15 @@ This System was built during a Master Project at the University of Hamburg. The 
 
 This project was under the supervision of the Language Technology Group at the University of Hamburg.
 
+## Contributing
+
+To contribute you need to install pre-commit hooks in your git repository.
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
 ## License
 This project is licensed under the terms of the Apache 2.0 license. See [LICENSE](./LICENSE) for more information.
 
