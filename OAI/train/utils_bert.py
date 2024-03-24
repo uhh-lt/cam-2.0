@@ -7,7 +7,7 @@ import pandas as pd
 import yaml
 from transformers import AutoModelForTokenClassification
 
-CONFIG_PATH = "/home/user/VersusQA/OAI/train/"
+CONFIG_PATH = "/home/user/cam-2.0/OAI/train/"
 LABEL_LIST = ["O", "B-OBJ", "I-OBJ", "B-ASP", "I-ASP", "B-PRED", "I-PRED"]
 
 
