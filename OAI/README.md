@@ -21,7 +21,7 @@ poetry install
 
 ## Training
 
-The encoder-based model can be trained on GPU by executing `train_bert.py`:
+The encoder-based model can be trained on GPU by executing `train_bert.py`.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train_bert.py
@@ -31,7 +31,7 @@ If you don't want to report to [WandB](https://wandb.ai/), please comment the `r
 
 ## Hyperparameter Optimization
 
-To optimize the hyperparameters of a new encoder-based model from HuggingFace, run `optimize_bert.py`:
+To optimize the hyperparameters of a new encoder-based model from HuggingFace, run `optimize_bert.py`.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python optimize_bert.py
@@ -39,7 +39,7 @@ CUDA_VISIBLE_DEVICES=0 python optimize_bert.py
 
 ## Cross Validation
 
-To cross-validate a new encoder-based model from HuggingFace, run `cross_val_bert.py`:
+To cross-validate a new encoder-based model from HuggingFace, run `cross_val_bert.py`.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python cross_val_bert.py
@@ -47,13 +47,13 @@ CUDA_VISIBLE_DEVICES=0 python cross_val_bert.py
 
 ## Demo and API
 
-Once the model is created, you can run a demo operated by [Gradio](https://www.gradio.app/):
+Once the model is created, you can run a demo operated by [Gradio](https://www.gradio.app/).
 
 ```bash
 python demo.py
 ```
 
-The API was created to access the model through a request. It is in the main file `main.py`.
+An API was created to access the model through a request. It is in the main file `main.py`.
 
 ```bash
 python main.py
