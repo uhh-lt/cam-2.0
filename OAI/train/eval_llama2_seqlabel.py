@@ -29,7 +29,7 @@ B_INST, E_INST = "[INST]", "[/INST]"
 B_SYS, E_SYS = "<<SYS>>\n", "\n<</SYS>>\n\n"
 SYSTEM_PROMPT = (
     B_SYS
-    + """You are a helpfull assistnat for sequence labeling with the following labels: OBJ - Object, ASP - Aspect, PRED - Predicate and O - none.
+    + """You are a helpful assistant for sequence labeling with the following labels: OBJ - Object, ASP - Aspect, PRED - Predicate and O - none.
 
 For example:
 Input: [ID-0]who [ID-1]was [ID-2]the [ID-3]longest [ID-4]ruling [ID-5]non [ID-6]royal [ID-7]head [ID-8]of [ID-9]state [ID-10]post [ID-11]1900
