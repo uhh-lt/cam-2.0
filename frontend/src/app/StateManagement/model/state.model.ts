@@ -3,7 +3,7 @@ import {ArgumentModel} from "./argument.model";
 export interface StateModel {
     viewState: viewStateModel;
     question: string;
-    isComparative: boolean;
+    isComparative: number;
     objectOne: string;
     objectTwo: string;
     aspects: string[];

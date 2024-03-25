@@ -9,9 +9,15 @@ import com.winlp.backend.repositories.ObjectsAndAspectsRepository;
 import com.winlp.backend.repositories.SummaryFeedbackRepository;
 import com.winlp.backend.services.ClusterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +35,34 @@ public class MainController {
 
     @Autowired
     private ClusterService clusterService;
+    private List<String> badWords = new ArrayList<>();
 
+    public MainController() {
+        // the file has the format
+        /*
+        badword1, badword2, badword3
+        badword4
+        badword5, badword6
+        ...
+         */
+        try {
+            File file = new File("./badwords.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] words = line.split(",");
+                for (String word : words) {
+                    badWords.add(word.trim());
+                }
+                // remove spaces
+                badWords.replaceAll(String::trim);
+                // remove empty strings
+                badWords.removeIf(String::isEmpty);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // ------------------- GET -------------------
 
     @GetMapping("/")
@@ -41,8 +74,15 @@ public class MainController {
      * endpoint for checking if a question is comparative
      */
     @GetMapping("/isComparative/{question}")
-    public boolean isComparative(@PathVariable String question) {
-        return clusterService.isComparative(question);
+    public int isComparative(@PathVariable String question) {
+        // check if question contains bad words
+        for (String badWord : badWords) {
+            if (question.contains(badWord)) {
+                System.out.println("bad word found: " + badWord);
+                return 2;
+            }
+        }
+        return clusterService.isComparative(question) ? 1 : 0;
     }
 
     /**

@@ -6,7 +6,6 @@ transformers~=4.28.1
 numpy~=1.24.3
 evaluate~=0.4.0
 torch~=2.0.0
-ray[tune]
 accelerate
 protobuf==3.19.0
 gradio

@@ -20,5 +20,6 @@ ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=admin
 ENV DB_URL=jdbc:postgresql://db:5432/postgres
 
+COPY --from=TEMP_BUILD_IMAGE $APP_HOME/src/main/resources/badwords.txt .
 COPY --from=TEMP_BUILD_IMAGE $APP_HOME/target/$ARTIFACT_NAME .
 ENTRYPOINT ["java","-jar","Comparative-Question-Answering---Backend-0.0.1-SNAPSHOT.jar"]

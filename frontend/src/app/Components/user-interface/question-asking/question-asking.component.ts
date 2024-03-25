@@ -24,4 +24,5 @@ export class QuestionAskingComponent {
     submitQuestion() {
         this.state.processQuestion(this.question, this.fastAnswer);
     }
+
 }

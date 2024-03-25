@@ -29,7 +29,7 @@ export class AppStateService {
                 receivedFeedback: false
             },
             question: 'What is tastier apples or oranges?',
-            isComparative: true,
+            isComparative: 1,
             objectOne: 'apples',
             objectTwo: 'oranges',
             aspects: ['tastiness'],
@@ -148,10 +148,11 @@ export class AppStateService {
 
         let state = this.getState();
         this.http.get(this._apiUrl + '/isComparative/' + question).subscribe((response) => {
+
             state.isComparative = response;
             state.viewState.receivedIsComparative = true;
 
-            if (state.isComparative) {
+            if (state.isComparative === 1) {
                 this.queryObjectsAndAspect(question, fastAnswer);
             } else {
                 state.viewState.processing = false;
